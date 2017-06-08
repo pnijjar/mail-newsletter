@@ -1,2 +1,2 @@
 # min hour dom mon dow command
-* * * * * /home/pnijjar/mail-newsletter/mail-newsletter.sh 2>&1 >> /home/pnijjar/logs/cronjob.log
+48 05 * * Mon /home/pnijjar/mail-newsletter/mail-newsletter.sh 2>&1 >> /home/pnijjar/logs/cronjob.log
