@@ -55,13 +55,13 @@ do
     read conffile bodyfile to_addr from_addr account <<< "${PARAM[$newsletter]}"
 
 
-    $PYDIR/gen_newsletter.py --configfile $CONFDIR/$conffile
-
+    $PYDIR/gen_newsletter.py \
+      --configfile $CONFDIR/$conffile \
+      2>&1 >> /home/pnijjar/logs/cronjob.log
 
     get_subject $newsletter
     email_subject="$retval"
     email_body=$(<$BODYDIR/$bodyfile)
-
 
     read -d '' EMAIL <<- EOF
 To: $to_addr
