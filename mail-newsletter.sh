@@ -14,7 +14,7 @@ PARAM[watcamp]="watcamp.config.py watcamp.txt \
   watcamp-newsletter@kwlug.org \
   newsletter-watcamp@kwlug.org newsletter.watcamp.kwlug.org"
 PARAM[spectrum]="spectrum.config.py spectrum.txt \
-  paul_nijjar@yahoo.ca \
+  rainbow@listserv.thinkers.org \
   newsletter-spectrum@kwlug.org newsletter.spectrum.kwlug.org"
 
 
@@ -62,11 +62,13 @@ do
     get_subject $newsletter
     email_subject="$retval"
     email_body=$(<$BODYDIR/$bodyfile)
+    email_date=`date -R`
 
     read -d '' EMAIL <<- EOF
 To: $to_addr
 From: $from_addr
 Subject: $email_subject 
+Date: $email_date
 Content-Type: text/plain; charset=UTF-8
 
 $email_body
